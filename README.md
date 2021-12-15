@@ -7,7 +7,7 @@ Who is ready to lose some weight?
 The user fills out a form to put in some basic information such as their gender, age, and how much weight they want to lose. Once they have filled out the form the app will then create a random workout for the person to achieve their weight goal.
 
 
-[Treller](https://trello.com/b/BkH7HQ9I)
+[Trello](https://trello.com/b/BkH7HQ9I)
 
 
 ## Getting Started
