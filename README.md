@@ -1,4 +1,4 @@
-# Mastin's Pong Game
+# Mastin Fitness Weight Loss Program
 Who is ready to lose some weight?
 #### Date 12/15/21
 #### By: Jonathan Mastin
@@ -15,3 +15,5 @@ The user will input their information such as Gender, Age, and How much weight t
 
 ## Credits
 -[Plank GIF](https://www.behance.net/gallery/80486129/The-Best-Exercises-GIFs)
+-[Back-end Setup](https://github.com/SEI-R-11-8/u2_hw_mongoose_plants)
+-[Front-end Setup]()
