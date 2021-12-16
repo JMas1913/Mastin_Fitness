@@ -17,3 +17,4 @@ The user will input their information such as Gender, Age, and How much weight t
 -[Plank GIF](https://www.behance.net/gallery/80486129/The-Best-Exercises-GIFs)
 -[Back-end Setup](https://github.com/SEI-R-11-8/u2_hw_mongoose_plants)
 -[Front-end Setup]()
+-[Background Picture](https://unsplash.com/photos/w95BkIgqkqY)
