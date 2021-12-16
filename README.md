@@ -1,4 +1,4 @@
-# Mastin's Pong Game
+# Mastin Fitness Weight Loss Program
 Who is ready to lose some weight?
 #### Date 12/15/21
 #### By: Jonathan Mastin
