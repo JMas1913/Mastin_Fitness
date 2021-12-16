@@ -71,16 +71,16 @@ const lowerBody = async () => {
 }
 
 const workouts = async () => {
-    math.random.push()
-    math.random.push()
-    math.random.pull()
-    math.random.pull()
-    math.random.armsAndshoulders()
-    math.random.armsAndshoulders()
-    math.random.lowerBody()
-    math.random.lowerBody()
-    math.random.core()
-    math.random.core()
+    Math.random.push()
+    Math.random.push()
+    Math.random.pull()
+    Math.random.pull()
+    Math.random.armsAndshoulders()
+    Math.random.armsAndshoulders()
+    Math.random.lowerBody()
+    Math.random.lowerBody()
+    Math.random.core()
+    Math.random.core()
 
 }
 
