@@ -1,10 +1,17 @@
 const db = require('../db')
-const Workout = require('../models/workout')
+const Push = require('../models/workout')
+const Pull = require('../models/workout')
+const Arms = require('../models/workout')
+const Core = require('../models/workout')
+const Legs = require('../models/workout')
+
 
 // Connect to the database
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 
-const push = async () => {
+const main = async () => {
+
+  const push = async () => {
     const chest = [
         { exercise: 'Push-ups', reps: 'Max', weight: 'Body-weight', sets: '3', },
         { exercise: 'Military Push-ups', reps: 'Max', weight: 'Body-weight', sets: '3', },
@@ -13,11 +20,11 @@ const push = async () => {
         { exercise: 'Spider-Man Push-ups', reps: 'Max', weight: 'Body-weight', sets: '3', }
     ]
 
-    await Workout.insertMany(chest)
+    await Push.insertMany(chest)
     console.log("Created some chest exercise!")
-}
+  }
 
-const pull = async () => {
+  const pull = async () => {
     const back = [
         { exercise: 'Chin-ups', reps: 'Max', weight: 'Body-weight', sets: '3', },
         { exercise: 'Pull-ups', reps: 'Max', weight: 'Body-weight', sets: '3', },
@@ -26,11 +33,11 @@ const pull = async () => {
         { exercise: 'Renegade Rows', reps: '10-12', weight: 'Heavy enough to fail between 10-12', sets: '3', }
     ]
 
-    await Workout.insertMany(back)
+    await Pull.insertMany(back)
     console.log("Created some back exercise!")
-}
+  }
 
-const armsAndshoulders = async () => {
+  const armsAndshoulders = async () => {
     const arms = [
         { exercise: 'Cross-body Alternating Shoulder Press', reps: '10-12', weight: 'Heavy enough to fail between 10-12', sets: '3', },
         { exercise: 'L-Raises', reps: '10-12', weight: 'Heavy enough to fail between 10-12', sets: '3', },
@@ -40,11 +47,11 @@ const armsAndshoulders = async () => {
         { exercise: 'Triceps Press-down', reps: '10-12', weight: 'Heavy enough to fail between 10-12', sets: '3', }
     ]
 
-    await Workout.insertMany(arms)
+    await Arms.insertMany(arms)
     console.log("Created some arm exercises!")
-}
+  }
 
-const core = async () => {
+  const core = async () => {
     const abs = [
         { exercise: 'Plank', reps: '1 min', weight: 'Body-weight', sets: '3', },
         { exercise: 'Side plank', reps: '1 min', weight: 'Body-weight', sets: '3', },
@@ -53,11 +60,11 @@ const core = async () => {
         { exercise: 'Twisting hip drop plank', reps: '1 min', weight: 'Body-weight', sets: '3', }
     ]
 
-    await Workout.insertMany(abs)
+    await Core.insertMany(abs)
     console.log("Created some ab exercises!")
-}
+  }
 
-const lowerBody = async () => {
+  const lowerBody = async () => {
     const legs = [
         { exercise: 'Squat', reps: 'Max', weight: 'Body-weight', sets: '3', },
         { exercise: 'Front lunge', reps: 'Max', weight: 'Body-weight', sets: '3', },
@@ -66,26 +73,13 @@ const lowerBody = async () => {
         { exercise: 'Alternating curtsy lunge', reps: 'Max', weight: 'Body-weight', sets: '3', }
     ]
 
-    await Workout.insertMany(legs)
+    await Legs.insertMany(legs)
     console.log("Created some leg exercises!")
-}
-
-const workouts = async () => {
-    Math.random.push()
-    Math.random.push()
-    Math.random.pull()
-    Math.random.pull()
-    Math.random.armsAndshoulders()
-    Math.random.armsAndshoulders()
-    Math.random.lowerBody()
-    Math.random.lowerBody()
-    Math.random.core()
-    Math.random.core()
-
+  }
 }
 
 const run = async () => {
-    await workouts()
+    await main()
     db.close()
 }
 

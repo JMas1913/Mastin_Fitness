@@ -15,6 +15,15 @@ The user will input their information such as Gender, Age, and How much weight t
 
 ## Credits
 -[Plank GIF](https://www.behance.net/gallery/80486129/The-Best-Exercises-GIFs)
+
 -[Back-end Setup](https://github.com/SEI-R-11-8/u2_hw_mongoose_plants)
--[Front-end Setup]()
+
+-[Front-end Setup](https://github.com/SEI-R-11-8/u2_lesson_react_router)
+
 -[Background Picture](https://unsplash.com/photos/w95BkIgqkqY)
+
+-Zee
+
+-Ben
+
+-[Axios Documentation](https://www.atatus.com/blog/how-to-perform-http-requests-with-axios-a-complete-guide/#axios-request-methods)
