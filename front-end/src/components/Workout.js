@@ -13,4 +13,4 @@ const workout = () => {
 
 workout()
 
-export default workout;
+export default Workout;

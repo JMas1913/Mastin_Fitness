@@ -9,7 +9,8 @@ function Nav() {
         <Link to="/">Home | </Link>
         <Link to="/listings">List of Exercises | </Link>
         <Link to="/new">New Exercise | </Link>
-        <Link to="/workout">Workout</Link>
+        <Link to="/workout">Workout | </Link>
+        <Link to="/newprofile">New Profile</Link>
       </div>
     </nav>
   )

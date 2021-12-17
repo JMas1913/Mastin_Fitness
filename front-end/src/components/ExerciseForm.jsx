@@ -13,7 +13,7 @@ function ExerciseForm(props) {
       <div>
       <h1>Add A New Exercise</h1>
       <form onSubmit={ handleSubmit }>
-        <input type="text" value={newExercise.exercise} onChange={ props.handleChange} name={'exercise'} placeholder={'name'} />
+        <input type="text-area" value={newExercise.exercise} onChange={ props.handleChange} name={'exercise'} placeholder={'name'} />
         <button>Submit</button>
       </form>
       </div>

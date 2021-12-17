@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import exerciseArr from './data/exercises'
 import './styles/App.css'
 import {Route, Switch} from 'react-router-dom'
@@ -7,6 +7,8 @@ import Nav from './components/NavBar'
 import Listings from './components/Listings'
 import ExerciseDetails from './components/ExerciseDetails'
 import ExerciseForm from './components/ExerciseForm'
+import ProfileForm from './components/ProfileForm'
+import axios from 'axios'
 
 
 function App() {
@@ -17,6 +19,13 @@ function App() {
     reps: '',
     weight: '',
     sets: ''
+  })
+
+  useEffect(() => {
+    async function getExercises() {
+      const res = await axios.get("http://localhost:3001/")
+    }
+    getExercises ()
   })
 
   const addExercise = (e) => {
@@ -60,6 +69,18 @@ function App() {
                 newExercise={newExercise}
                 handleChange={handleChange}
                 addExercise={addExercise}
+              />
+            )}
+          />
+          <Route
+            exact path="/workout"
+            component={(props) => <Listings {...props} workout={Math.random.exercises} />}
+          />
+          <Route
+            path="/newprofile"
+            render={(props) => (
+              <ProfileForm
+                {...props}
               />
             )}
           />
