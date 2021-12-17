@@ -1,73 +1,73 @@
-import React, { useState, useEffect } from 'react'
-import './style.css'
-import { Route, Switch } from 'react-router-dom'
+import React, { useState } from 'react'
+import exerciseArr from './data/exercises'
+import './styles/App.css'
+import {Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
-import axios from 'axios'
-import NavBar from "./components/NavBar";
-import Workouts from './components/Workouts'
+import Nav from './components/NavBar'
+import Listings from './components/Listings'
+import ExerciseDetails from './components/ExerciseDetails'
+import ExerciseForm from './components/ExerciseForm'
+
 
 function App() {
+  const [exercises, setExercises] = useState(exerciseArr)
   const [newExercise, setNewExercise] = useState({
-    name: ""});
-
-  useEffect(() => {
-    async function getExercises() {
-      const res = await axios.get("http://localhost:3001/");
-    }
-    getExercises();
-  }, []);
-
-  const handleNewExercise = (e) => {
-    setNewExercise({ ...newExercise, [e.target.name]: e.target.value });
-  };
+    id: '',
+    exercise: '',
+    reps: '',
+    weight: '',
+    sets: ''
+  })
 
   const addExercise = (e) => {
-    e.preventDefault();
-    const currentExercise = ExerciseList;
-    const addedExercise = {
+    e.preventDefault()
+    const currentExercises = exercises
+    const addExercise = {
       ...newExercise,
-         id: parseInt(ExerciseList.length + 1),
-    };
-    currentExercise.push(addedExercise);
-    setExerciseList(currentExercises);
-    setNewExercise({ id: "", name: ""});
-  };
+      id: parseInt(exercises.length + 1),
+      exercise: parseInt(newExercise.exercise)
+    }
+    currentExercises.push(addExercise)
+    setExercises(currentExercises)
+    setNewExercise({ id: '', exercise: '', reps: '', weight: '', sets: '' })
+  }
+
+  const handleChange = (e) => {
+    setNewExercise({ ...newExercise, [e.target.exercise]: e.target.value })
+  }
 
   return (
     <div className="App">
       <header>
-        <h1 className="banner">Readt to get into shape!</h1>
+        <Nav/>
       </header>
       <main>
-        <NavBar />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/allexercises"
-            component={(props) => <ExerciseList {...props} exerciseList={exerciseList} />}
+          <Route exact path="/" component= {Home} />
+          <Route 
+            exact path="/Listings" 
+            component= {(props) => <Listings {...props} exercises={exercises}/>}
           />
           <Route
-            path="/allexercises/:id"
-            component={(props) => (
-              <Workouts {...props} exerciseList={exerciseList} />
-            )}
+            path="/listings/:id"
+            component={(props) => <ExerciseDetails {...props} exercises={exercises} />}
           />
           <Route
             path="/new"
             render={(props) => (
-              <AddExercisesPage
+              <ExerciseForm
                 {...props}
                 newExercise={newExercise}
-                handleNewExercise={handleNewExercise}
+                handleChange={handleChange}
                 addExercise={addExercise}
               />
             )}
           />
+
         </Switch>
       </main>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
