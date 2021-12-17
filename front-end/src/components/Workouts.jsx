@@ -1,5 +1,14 @@
-import Exercises from '.back-end/exercise/exercises'
 import axios from 'axios'
+
+async function getWorkout() {
+    try {
+        const exercises = await axios.get("http://localhost:3001/exercise/exercises");
+        console.log(exercises);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
 
 const workout = () => {
     Math.random.push()
