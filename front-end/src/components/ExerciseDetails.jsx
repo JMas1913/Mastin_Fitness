@@ -1,5 +1,4 @@
 import React from 'react'
-import Exercises from '../data/exercises'
 import {useEffect, useState} from 'react'
 
 function ExerciseDetails(props) {

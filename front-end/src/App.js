@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import exerciseArr from './data/exercises'
 import './styles/App.css'
 import {Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
@@ -8,26 +7,32 @@ import Listings from './components/Listings'
 import ExerciseDetails from './components/ExerciseDetails'
 import ExerciseForm from './components/ExerciseForm'
 import ProfileForm from './components/ProfileForm'
-import AddExercisePage from './components/AddExercisePage.jsx'
 import axios from 'axios'
 
 
 function App() {
-  const [exercises, setExercises] = useState(exerciseArr)
   const [newExercise, setNewExercise] = useState({
-    id: '',
-    exercise: '',
+    name: '',
     reps: '',
     weight: '',
     sets: ''
   })
 
+  // const [profiles, setProfiles] = useState(profileArr)
+  // const [newProfile, setNewProfile] = useState({
+
+  //   name: '',
+  //   age: '',
+  //   sex: '',
+  //   goal: ''
+  // })
+
   useEffect(() => {
     async function getExercises() {
-      const res = await axios.get("http://localhost:3001/")
+      const res = await axios.get("http://localhost:3001/seed/exercises")
     }
     getExercises ()
-  })
+  }, [])
 
   const addExercise = (e) => {
     e.preventDefault()
@@ -43,8 +48,27 @@ function App() {
   }
 
   const handleChange = (e) => {
-    setNewExercise({ ...newExercise, [e.target.exercise]: e.target.value })
+    setNewExercise({ ...newExercise, [e.target.name]: e.target.value })
   }
+
+  // const addProfile = (e) =>{
+  //   e.preventDefault()
+  //   const currentProfiles = profiles
+  //   const addProfile = {
+  //     ...newProfile,
+  //     id: parseInt(profiles.length + 1),
+  //     profiles: parseInt(newProfile.profiles)
+  //   }
+  //   currentProfiles.push(addProfile)
+  //   setProfiles(currentProfiles)
+  //   setNewProfile({id: '', name: '', age: '', sex: '', goal: ''})
+  // }
+
+  // const handleChange = (e) => {
+  //   setNewProfile({...newProfile, [e.target.profiles]: e.target.value})
+  // }
+
+
 
   return (
     <div className="App">

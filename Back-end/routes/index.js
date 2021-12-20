@@ -14,4 +14,23 @@ router.put('/exercises/:id', controllers.updateExercise)
 
 router.delete('/exercises/:id', controllers.deleteExercise)
 
+router.post('/profile', controllers.createProfile)
+
+router.get('/profiles', controllers.getAllProfiles)
+
+router.get('/profiles/:id', controllers.getProfileById)
+
+router.put('/profiles/:id', controllers.updateProfile)
+
+router.delete('/profiles/:id', controllers.deleteProfile)
+
+
+
+
+
+
+
+
+
+
 module.exports = router;

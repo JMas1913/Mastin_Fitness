@@ -22,6 +22,8 @@ The user will input their information such as Gender, Age, and How much weight t
 
 -[Background Picture](https://unsplash.com/photos/w95BkIgqkqY)
 
+-[Gym Picture](https://unsplash.com/photos/20jX9b35r_M)
+
 -Zee
 
 -Ben

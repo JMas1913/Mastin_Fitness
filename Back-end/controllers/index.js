@@ -1,4 +1,4 @@
-const Exercise = require('../models/workout');
+const Exercise = require('../models/exercise');
 
 const createExercise = async (req, res) => {
     try {
@@ -44,7 +44,7 @@ const updateExercise = async (req, res) => {
             if (!exercise) {
                 res.status(500).send('Exercise not found!');
             }
-            return res.status(200).json(plant);
+            return res.status(200).json(exercise);
         })
     } catch (error) {
         return res.status(500).send(error.message);
@@ -64,11 +64,84 @@ const deleteExercise = async (req, res) => {
     }
 }
 
+// ---------------------------------------------------------------------------
+
+const createProfile = async (req, res) => {
+    try {
+        const profile = await new Profile(req.body)
+        await profile.save()
+        return res.status(201).json({
+            profile,
+        });
+    } catch (error) {
+        return res.status(500).json({ error: error.message })
+    }
+}
+
+const getAllProfiles = async (req, res) => {
+    try {
+        const profiles = await Profile.find()
+        return res.status(200).json({ profiles })
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+const getProfileById = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const profileId = await Profile.findById(id)
+        if (profileId) {
+            return res.status(200).json({ profileId });
+        }
+        return res.status(404).send('Profile with the specified ID does not exists');
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+const updateProfile = async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Profile.findByIdAndUpdate(id, req.body, { new: true }, (err, profile) => {
+            if (err) {
+                res.status(500).send(err);
+            }
+            if (!profile) {
+                res.status(500).send('Profile not found!');
+            }
+            return res.status(200).json(profile);
+        })
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+const deleteProfile = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleted = await Profile.findByIdAndDelete(id)
+        if (deleted) {
+            return res.status(200).send("Profile deleted");
+        }
+        throw new Error("Profile not found");
+    } catch (error) {
+        return res.status(500).send(error.message);
+    }
+}
+
+
+
 
 module.exports = {
     createExercise,
     getAllExercises,
     getExerciseById,
     updateExercise,
-    deleteExercise
+    deleteExercise,
+    createProfile,
+    getAllProfiles,
+    getProfileById,
+    updateProfile,
+    deleteProfile,
 }

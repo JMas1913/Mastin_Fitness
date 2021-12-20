@@ -17,9 +17,9 @@ function ExerciseForm(props) {
       <form onSubmit={ handleSubmit }>
         <input type="text" value={newExercise.name} onChange={ props.handleChange} name={'name'} placeholder={'name'} />
         <input type="text" value={newExercise.reps} onChange={ props.handleChange} name={'reps'} placeholder={'reps'} />
-        <input type="text-area" value={newExercise.weight} onChange={ props.handleChange} name={'weight'} placeholder={'weight'} />
+        <input type="text" value={newExercise.weight} onChange={ props.handleChange} name={'weight'} placeholder={'weight'} />
         <input type="text" value={newExercise.sets} onChange={ props.handleChange} name={'sets'} placeholder={'sets'} />
-        <button>Submit</button>
+        <button type='submit'>Submit</button>
       </form>
       </div>
     );
