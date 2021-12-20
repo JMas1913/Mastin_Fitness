@@ -6,6 +6,8 @@ function ExerciseForm(props) {
   const handleSubmit = (e) => {
     props.addExercise(e)
     props.history.push('/listings')
+
+    
   }
 
     const newExercise = props.newExercise
@@ -13,12 +15,16 @@ function ExerciseForm(props) {
       <div>
       <h1>Add A New Exercise</h1>
       <form onSubmit={ handleSubmit }>
-        <input type="text-area" value={newExercise.exercise} onChange={ props.handleChange} name={'exercise'} placeholder={'name'} />
+        <input type="text" value={newExercise.name} onChange={ props.handleChange} name={'name'} placeholder={'name'} />
+        <input type="text" value={newExercise.reps} onChange={ props.handleChange} name={'reps'} placeholder={'reps'} />
+        <input type="text-area" value={newExercise.weight} onChange={ props.handleChange} name={'weight'} placeholder={'weight'} />
+        <input type="text" value={newExercise.sets} onChange={ props.handleChange} name={'sets'} placeholder={'sets'} />
         <button>Submit</button>
       </form>
       </div>
     );
 }
+
 
 
 export default ExerciseForm

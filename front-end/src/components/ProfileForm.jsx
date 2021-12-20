@@ -1,21 +1,24 @@
 import React from 'react'
 
 
-function Profile(props) {
+function ProfileForm(props) {
   
   const handleSubmit = (e) => {
-    props.onSubmit(e)
-    props.history.push('/newprofile')
+    props.addProfile(e)
+    props.history.push('/profilelistings')
+
+    
   }
 
     const newProfile = props.newProfile
     return (
       <div>
-      <h1>Welcome</h1>
+      <h1>Complete the form</h1>
       <form onSubmit={ handleSubmit }>
-        <input type="text" value={newProfile.profile} onChange={ props.handleChange} name={'Sex'} placeholder={'Sex'} />
-        <input type="text" value={newProfile.profile} onChange={ props.handleChange} name={'Age'} placeholder={'Age'} />
-        <input type="text" value={newProfile.profile} onChange={ props.handleChange} name={'How much weight would you like to lose?'} placeholder={'How much weight would you like to lose?'} />
+        <input type="text" value={newProfile.name} onChange={ props.handleChange} name={'name'} placeholder={'name'} />
+        <input type="text" value={newProfile.age} onChange={ props.handleChange} name={'age'} placeholder={'age'} />
+        <input type="text" value={newProfile.sex} onChange={ props.handleChange} name={'sex'} placeholder={'sex'} />
+        <input type="text-area" value={newProfile.goal} onChange={ props.handleChange} name={'goal'} placeholder={'goal'} />
         <button>Submit</button>
       </form>
       </div>
@@ -23,4 +26,5 @@ function Profile(props) {
 }
 
 
-export default Profile;
+
+export default ProfileForm

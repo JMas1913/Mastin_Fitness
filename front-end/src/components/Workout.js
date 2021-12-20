@@ -1,4 +1,4 @@
-mport React from 'react'
+import React from 'react'
 import Exercises from '../data/exercises'
 
 

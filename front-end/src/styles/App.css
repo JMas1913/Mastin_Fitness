@@ -3,6 +3,39 @@ header {
     text-align: left;
 }
 
+.App {
+    text-align: center;
+    color: greenyellow;
+}
+
+div {
+    color: greenyellow;
+}
+
+.detail, .detail-header, .listings, .home, .home div, .exercise-card, .navbar {
+    display: flex;
+}
+
+.home, .home div {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.detail, .exercise-card, .home div {
+    flex-direction: column;
+}
+
+.navbar {
+    justify-content: space-between;
+    align-items: center;
+    color: greenyellow;
+    background-color: black;
+    padding: 1em;
+    min-height: 2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
     background-image: url('https://images.unsplash.com/photo-1597299407241-638aa26e56c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2057&q=80');
     width: 100%;
@@ -11,3 +44,4 @@ body {
     text-align: center;
     align-items: center;
 }
+

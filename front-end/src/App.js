@@ -8,6 +8,7 @@ import Listings from './components/Listings'
 import ExerciseDetails from './components/ExerciseDetails'
 import ExerciseForm from './components/ExerciseForm'
 import ProfileForm from './components/ProfileForm'
+import AddExercisePage from './components/AddExercisePage.jsx'
 import axios from 'axios'
 
 
