@@ -7,6 +7,7 @@ const Exercise = new Schema(
         reps: { type: String, required: true },
         weight: { type: String, required: true },
         sets: { type: String, required: true },
+        type: { type: String, required: true }
     },
     { timestamps: true },
 )

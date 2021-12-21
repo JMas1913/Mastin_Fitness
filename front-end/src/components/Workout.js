@@ -1,14 +1,17 @@
-import React from 'react'
-import Exercises from '../data/exercises'
+import React, { useEffect, useState } from 'react'
 
 
 const workout = () => {
-    Math.random.exercises
-    Math.random.exercises
-    Math.random.exercises
-    Math.random.exercises
-    Math.random.exercises
-    Math.random.exercises
+    useEffect(() => {
+        async function getExercises() {
+          const res = await axios.get("http://localhost:3001/api/exercises")
+          console.log(res)
+        }
+        getExercises ()
+      }, [])
+
+
+    // Math.random.exercises * 6
 }
 
 workout()

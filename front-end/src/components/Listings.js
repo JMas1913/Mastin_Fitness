@@ -4,7 +4,6 @@ import Home from './Home'
 
 function Listings(props) {
 
-
   const showExercise = (exercise) => {
     props.history.push(`/listings/${exercise.id}`)
   }
@@ -15,11 +14,11 @@ function Listings(props) {
   }
 
   return (
-    <div>
-      {
-      props.exercises.map((exercise) => (
+    <div key={props.exercises}>
+      { props.exercises.exercises &&
+      props.exercises.exercises.map((exercise) => (
         <div className="exercise-card" onClick={() => showExercise(exercise)}>
-          <h3>{exercise.exercise}</h3>
+          <h3>{exercise.name}</h3>
         </div>
       ))}
     </div>

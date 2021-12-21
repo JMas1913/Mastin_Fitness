@@ -19,6 +19,7 @@ div {
 
 .detail, .exercise-card, .home div {
     flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .navbar {

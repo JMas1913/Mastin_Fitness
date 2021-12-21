@@ -25,7 +25,7 @@ function ExerciseDetails(props) {
             <h3>Reps: {selectExercise.reps}</h3>
             <h3>Weight: {selectExercise.weight}</h3>
             <h3>Sets: {selectExercise.sets}</h3>
-            <h3>Exercise ID: {selectExercise.id}</h3>
+            <h3>Exercise Type: {selectExercise.type}</h3>
           </div>
         </div>
       </div>
