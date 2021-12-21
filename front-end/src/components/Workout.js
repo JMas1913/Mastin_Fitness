@@ -1,19 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { Route } from 'react-router-dom'
+import Home from './Home'
 
+function Workout(props) {
 
-const workout = () => {
-    useEffect(() => {
-        async function getExercises() {
-          const res = await axios.get("http://localhost:3001/api/exercises")
-          console.log(res)
-        }
-        getExercises ()
-      }, [])
+  const showWorkout = (exercise) => {
+    Math.random(props.exercises.exercises.legs)
+    Math.random(props.exercises.exercises.legs)
+    Math.random(props.exercises.exercises.push)
+    Math.random(props.exercises.exercises.push)
+    Math.random(props.exercises.exercises.pull)
+    Math.random(props.exercises.exercises.pull)
+    Math.random(props.exercises.exercises.arms)
+    Math.random(props.exercises.exercises.arms)
+    Math.random(props.exercises.exercises.core)
+    Math.random(props.exercises.exercises.core)
+  }
 
+  const backBtn = () => {
+    <Route exact path="/" component= {Home} />
+    return 
+  }
 
-    // Math.random.exercises * 6
+  return (
+    <div key={props.exercises}>
+      { props.exercises.exercises &&
+      props.exercises.exercises.map((exercise) => (
+        <div className="workout-card" onClick={() => showWorkout(exercise)}>
+          <h3>{exercise.name}</h3>
+        </div>
+      ))}
+    </div>
+    
+  )
 }
 
-workout()
-
-export default Workout;
+export default Workout

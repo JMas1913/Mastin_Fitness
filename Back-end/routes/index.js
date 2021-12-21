@@ -14,7 +14,7 @@ router.put('/exercises/:id', controllers.updateExercise)
 
 router.delete('/exercises/:id', controllers.deleteExercise)
 
-router.post('/profile', controllers.createProfile)
+router.post('/newprofile', controllers.createProfile)
 
 router.get('/profiles', controllers.getAllProfiles)
 

@@ -8,10 +8,10 @@ function Listings(props) {
     props.history.push(`/listings/${exercise.id}`)
   }
 
-  const backBtn = () => {
-    <Route exact path="/" component= {Home} />
-    return 
-  }
+  // const backBtn = () => {
+  //   <Route exact path="/" component= {Home} />
+  //   return 
+  // }
 
   return (
     <div key={props.exercises}>

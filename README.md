@@ -28,4 +28,6 @@ The user will input their information such as Gender, Age, and How much weight t
 
 -Ben
 
+-John
+
 -[Axios Documentation](https://www.atatus.com/blog/how-to-perform-http-requests-with-axios-a-complete-guide/#axios-request-methods)

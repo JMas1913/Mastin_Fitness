@@ -6,6 +6,7 @@ import Nav from './components/NavBar'
 import Listings from './components/Listings'
 import ExerciseDetails from './components/ExerciseDetails'
 import ExerciseForm from './components/ExerciseForm'
+import Workout from './components/Workout'
 import ProfileForm from './components/ProfileForm'
 import axios from 'axios'
 
@@ -36,19 +37,37 @@ function App() {
 
   const getProfiles = async () => {
     const res = await axios.get("http://localhost:3001/api/newprofile")
-      setProfiles(res.data)
+    setProfiles(res.data)
   }
+
+  const postExercise = async () => {
+    const res = await axios({
+      url: "http://localhost:3001/api/exercises",
+      method: 'post',
+      data: ExerciseForm
+    })
+  }
+
+  const postProfile = async () => {
+    const res = await axios({
+      url: "http://localhost:3001/api/newprofile",
+      method: 'post',
+      data: ProfileForm
+    })
+  }
+
+
 
   useEffect(() => {
     getProfiles()
     getExercises()
+    postExercise()
+    postProfile()
   }, [])
 
   const addExercise = (e) => {
     e.preventDefault()
     const currentExercises = exercises.exercises
-    console.log(currentExercises)
-    console.log(exercises)
     const addExercise = {
       ...newExercise,
       id: parseInt(exercises.exercises.length + 1),
@@ -57,10 +76,6 @@ function App() {
     currentExercises.push(addExercise)
     setExercises(currentExercises)
     setNewExercise({ name: '', reps: '', weight: '', sets: '', type: '' })
-  }
-
-  const handleChangeExercise = (e) => {
-    setNewExercise({ ...newExercise, [e.target.name]: e.target.value })
   }
 
   const addProfile = (e) => {
@@ -73,11 +88,16 @@ function App() {
     }
     currentProfiles.push(addProfile)
     setProfiles(currentProfiles)
-    setNewProfile({ id: '', name: '', age: '', sex: '', goal: '' })
+    setNewProfile({ name: '', age: '', sex: '', goal: '' })
+  }
+
+  const handleChangeExercise = (e) => {
+    setNewExercise({ ...newExercise, [e.target.name]: e.target.value })
   }
 
   const handleChangeProfile = (e) => {
     setNewProfile({ ...newProfile, [e.target.profiles]: e.target.value })
+    
   }
 
 
@@ -119,6 +139,9 @@ return (
           render={(props) => (
             <ProfileForm
               {...props}
+              newProfile={newProfile}
+              handleChange={handleChangeProfile}
+              addProfile={addProfile}
             />
           )}
         />
