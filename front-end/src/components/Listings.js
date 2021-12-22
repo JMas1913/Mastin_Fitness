@@ -3,15 +3,11 @@ import { Route } from 'react-router-dom'
 import Home from './Home'
 
 function Listings(props) {
-
+  console.log("listings page")
   const showExercise = (exercise) => {
     props.history.push(`/listings/${exercise.id}`)
   }
 
-  // const backBtn = () => {
-  //   <Route exact path="/" component= {Home} />
-  //   return 
-  // }
 
   return (
     <div key={props.exercises}>

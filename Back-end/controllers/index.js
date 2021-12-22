@@ -2,10 +2,11 @@ const Exercise = require('../models/exercise');
 const Profile = require('../models/profile');
 
 const createExercise = async (req, res) => {
+    console.log(req.body)
     try {
-        const exercise = await new Exercise(req.body)
+        const exercise = await Exercise.create(req.body)
         await exercise.save()
-        return res.status(201).json({
+        return res.status(202).json({
             exercise,
         });
     } catch (error) {
@@ -27,7 +28,7 @@ const getExerciseById = async (req, res) => {
         const { id } = req.params;
         const exerciseId = await Exercise.findById(id)
         if (exerciseId) {
-            return res.status(200).json({ exerciseId });
+            return res.status(201).json({ exerciseId });
         }
         return res.status(404).send('Exercise with the specified ID does not exists');
     } catch (error) {

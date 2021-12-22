@@ -7,7 +7,7 @@ function ExerciseDetails(props) {
 
   useEffect(() => {
     let selectExercise = props.exercises.exercises.find(
-      (exercise) => exercise.exercises.id === parseInt(props.match.params.id)
+      (exercise) => exercise.id === parseInt(props.match.params.id)
     )
     setExercise(selectExercise)
   }, [])
@@ -16,8 +16,8 @@ function ExerciseDetails(props) {
     return selectExercise ? (
       <div className='details'>
         <div className='detail-header'>
-          <div style={{maxWidth: '60em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <h2>{selectExercise.name}</h2>
+          <div style={{minWidth: '30em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <h2>{selectExercise.exercise}</h2>
           </div>
         </div>
         <div className='info-wrapper'>

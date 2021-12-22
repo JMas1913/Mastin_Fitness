@@ -32,11 +32,12 @@ function App() {
 
   const getExercises = async () => {
     const res = await axios.get("http://localhost:3001/api/exercises")
+    console.log(res.data)
     setExercises(res.data)
   }
 
   const getProfiles = async () => {
-    const res = await axios.get("http://localhost:3001/api/newprofile")
+    const res = await axios.get("http://localhost:3001/api/profiles")
     setProfiles(res.data)
   }
 
@@ -44,16 +45,19 @@ function App() {
     const res = await axios({
       url: "http://localhost:3001/api/exercises",
       method: 'post',
-      data: ExerciseForm
+      data: newExercise 
     })
+    console.log(`postexercise : ${res.data}` )
+    setExercises(res.data)
   }
 
   const postProfile = async () => {
     const res = await axios({
       url: "http://localhost:3001/api/newprofile",
       method: 'post',
-      data: ProfileForm
+      data: newProfile
     })
+    setProfiles(res.data)
   }
 
 
@@ -61,17 +65,14 @@ function App() {
   useEffect(() => {
     getProfiles()
     getExercises()
-    postExercise()
-    postProfile()
   }, [])
 
   const addExercise = (e) => {
     e.preventDefault()
+    postExercise()
     const currentExercises = exercises.exercises
     const addExercise = {
       ...newExercise,
-      id: parseInt(exercises.exercises.length + 1),
-      exercise: parseInt(newExercise.exercise)
     }
     currentExercises.push(addExercise)
     setExercises(currentExercises)
@@ -83,8 +84,6 @@ function App() {
     const currentProfiles = profiles
     const addProfile = {
       ...newProfile,
-      id: parseInt(profiles.length + 1),
-      profiles: parseInt(newProfile.profiles)
     }
     currentProfiles.push(addProfile)
     setProfiles(currentProfiles)
@@ -116,7 +115,7 @@ return (
           component={(props) => <Listings {...props} exercises={exercises} />}
         />
         <Route
-          path="/listings/:id"
+          path="/listings/:name"
           component={(props) => <ExerciseDetails {...props} exercises={exercises} />}
         />
         <Route

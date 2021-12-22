@@ -4,7 +4,7 @@ const router = Router();
 
 router.get('/', (req, res) => res.send('This is root!'))
 
-router.post('/exercise', controllers.createExercise)
+router.post('/exercises', controllers.createExercise)
 
 router.get('/exercises', controllers.getAllExercises)
 

@@ -6,6 +6,7 @@ function ExerciseForm(props) {
   const handleSubmit = (e) => {
     props.addExercise(e)
     props.history.push('/listings')
+    
 
     
   }
