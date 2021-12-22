@@ -1,9 +1,15 @@
 import React from 'react'
 import {useEffect, useState} from 'react'
+import axios from 'axios'
 
 function ExerciseDetails(props) {
   
   const  [selectExercise, setExercise] = useState('')
+  const getExerciseDetail = async (id) => {
+    const res = await axios.get("http://localhost:3001/api/exercises/read/:id")
+  }
+
+getExerciseDetail()
 
   useEffect(() => {
     let selectExercise = props.exercises.exercises.find(

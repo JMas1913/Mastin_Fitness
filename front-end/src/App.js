@@ -120,8 +120,7 @@ function App() {
 // //===DELETE===
 
 // const deleteExercise = async () => {
-//   const res = await axios({
-//     url: "http://localhost:3001/api/exercise/delete/:id",
+//   const res = await axios.delete("http://localhost:3001/api/exercise/:id",
 //     method: 'delete',
 //     data: currentExercises 
 //   })
@@ -129,7 +128,7 @@ function App() {
 // }
 
 // const deleteProfile = async () => {
-//   const res = await axios({
+//   const res = await axios.delete({
 //     url: "http://localhost:3001/api/profile/delete/:id",
 //     method: 'delete',
 //     data: currentProfiles

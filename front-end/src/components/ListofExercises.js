@@ -4,9 +4,8 @@ import Home from './Home'
 
 function ListofExercises(props) {
   const showExercise = (exercise) => {
-    props.history.push(`/listingofexercises/${exercise.id}`)
+    props.history.push(`/listofexercises/${exercise.id}`)
   }
-
 
   return (
     <div key={props.exercises}>
@@ -22,7 +21,7 @@ function ListofExercises(props) {
           Delete an Exercise
         </button>
         <div>
-          
+
         </div>
       </div>
 

@@ -11,7 +11,8 @@ function Nav() {
         <Link to="/newexercise">New Exercise | </Link>
         <Link to="/workout">Workout | </Link>
         <Link to="/newprofile">New Profile | </Link>
-        <Link to="/listofprofiles">List of Profiles</Link>
+        {/* Just to have this to show I can do it on more than one page
+        <Link to="/listofprofiles">List of Profiles</Link> */} 
       </div>
     </nav>
   )
