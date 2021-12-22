@@ -13,10 +13,19 @@ function ListofProfiles(props) {
     <div key={props.profiles}>
       { props.profiles &&
       props.profiles.profiles.map((profile) => (
-        <div className="exercise-card" onClick={() => showProfiles(exercise)}>
-          <h3>{exercise.name}</h3>
+        <div className="profile-card" onClick={() => showProfiles(profile)}>
+          <h3>{profile.name}</h3>
         </div>
       ))}
+
+      <div>
+        <button>
+          Delete a profile
+        </button>
+      </div>
+
+
+
     </div>
     
   )

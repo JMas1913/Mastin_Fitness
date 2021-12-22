@@ -7,10 +7,11 @@ function Nav() {
       <h4>Mastin Fitness</h4>
       <div>
         <Link to="/">Home | </Link>
-        <Link to="/listings">List of Exercises | </Link>
-        <Link to="/new">New Exercise | </Link>
+        <Link to="/listofexercises">List of Exercises | </Link>
+        <Link to="/newexercise">New Exercise | </Link>
         <Link to="/workout">Workout | </Link>
-        <Link to="/newprofile">New Profile</Link>
+        <Link to="/newprofile">New Profile | </Link>
+        <Link to="/listofprofiles">List of Profiles</Link>
       </div>
     </nav>
   )

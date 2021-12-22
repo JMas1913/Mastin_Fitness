@@ -34,6 +34,8 @@ function App() {
     goal: ''
   })
 
+  
+
 //=====CRUD=====
 
 //=======================================================
@@ -95,45 +97,45 @@ function App() {
     setProfiles(res.data)
   }
 
-//===UPDATE===
+// // ===UPDATE===
 
-const putExercise = async () => {
-  const res = await axios({
-    url: "http://localhost:3001/api/exercise/update/:id",
-    method: 'update',
-    data: currentExercises 
-  })
-  setExercises(res.data)
-}
+// const putExercise = async () => {
+//   const res = await axios({
+//     url: "http://localhost:3001/api/exercise/update/:id",
+//     method: 'update',
+//     data: currentExercises 
+//   })
+//   setExercises(res.data)
+// }
 
-const putProfile = async () => {
-  const res = await axios({
-    url: "http://localhost:3001/api/profile/update/:id",
-    method: 'put',
-    data: currentProfiles
-  })
-  setProfiles(res.data)
-}
+// const putProfile = async () => {
+//   const res = await axios({
+//     url: "http://localhost:3001/api/profile/update/:id",
+//     method: 'put',
+//     data: currentProfiles
+//   })
+//   setProfiles(res.data)
+// }
 
-//===DELETE===
+// //===DELETE===
 
-const deleteExercise = async () => {
-  const res = await axios({
-    url: "http://localhost:3001/api/exercise/delete/:id",
-    method: 'delete',
-    data: currentExercises 
-  })
-  setExercises(res.data)
-}
+// const deleteExercise = async () => {
+//   const res = await axios({
+//     url: "http://localhost:3001/api/exercise/delete/:id",
+//     method: 'delete',
+//     data: currentExercises 
+//   })
+//   setExercises(res.data)
+// }
 
-const deleteProfile = async () => {
-  const res = await axios({
-    url: "http://localhost:3001/api/profile/delete/:id",
-    method: 'delete',
-    data: currentProfiles
-  })
-  setProfiles(res.data)
-}
+// const deleteProfile = async () => {
+//   const res = await axios({
+//     url: "http://localhost:3001/api/profile/delete/:id",
+//     method: 'delete',
+//     data: currentProfiles
+//   })
+//   setProfiles(res.data)
+// }
 
 
 
@@ -164,11 +166,11 @@ return (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route
-          exact path="/ListofExercises"
+          exact path="/listofexercises"
           component={(props) => <ListofExercises {...props} exercises={exercises} />}
         />
         <Route
-          path="/listofExercises/:name"
+          path="/listofexercises/:name"
           component={(props) => <ExerciseDetails {...props} exercises={exercises} />}
         />
         <Route
@@ -184,7 +186,7 @@ return (
         />
         <Route
           exact path="/workout"
-          component={(props) => <ListofExercises {...props} workout={Math.random.exercises} />}
+          component={(props) => <Workout {...props} exercises={exercises} />}
         />
         <Route
           path="/newprofile"
@@ -196,6 +198,10 @@ return (
               addProfile={addProfile}
             />
           )}
+        />
+        <Route
+          exact path="/listofprofiles"
+          component={(props) => <ListofProfiles {...props} profiles={profiles} />}
         />
 
       </Switch>

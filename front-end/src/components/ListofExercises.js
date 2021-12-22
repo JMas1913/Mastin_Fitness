@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom'
 import Home from './Home'
 
 function ListofExercises(props) {
-  console.log("list of exercise page")
   const showExercise = (exercise) => {
     props.history.push(`/listingofexercises/${exercise.id}`)
   }
@@ -17,8 +16,21 @@ function ListofExercises(props) {
           <h3>{exercise.name}</h3>
         </div>
       ))}
+
+      <div>
+        <button>
+          Delete an Exercise
+        </button>
+        <div>
+          
+        </div>
+      </div>
+
+
+
+
+
     </div>
-    
   )
 }
 
