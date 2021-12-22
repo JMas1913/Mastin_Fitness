@@ -34,11 +34,9 @@ function App() {
     goal: ''
   })
 
-  
+//=======================================================
 
 //=====CRUD=====
-
-//=======================================================
 
 //====CREATE====
 
@@ -97,44 +95,46 @@ function App() {
     setProfiles(res.data)
   }
 
-// // ===UPDATE===
+// ===UPDATE===
 
-// const putExercise = async () => {
-//   const res = await axios({
-//     url: "http://localhost:3001/api/exercise/update/:id",
-//     method: 'update',
-//     data: currentExercises 
-//   })
-//   setExercises(res.data)
-// }
+const putExercise = async () => {
+  const res = await axios.put(
+    'http://localhost:3001/api/exercise/:id',
+    {
+      name: '',
+      reps: '',
+      weight: '',
+      sets: '',
+      type: ''
+    }
+  )
+  setExercises(res.data)
+}
 
-// const putProfile = async () => {
-//   const res = await axios({
-//     url: "http://localhost:3001/api/profile/update/:id",
-//     method: 'put',
-//     data: currentProfiles
-//   })
-//   setProfiles(res.data)
-// }
+const putProfile = async () => {
+  const res = await axios.put(
+    'http://localhost:3001/api/profile/update/:id',
+    {
+      name: '',
+      age: '',
+      sex: '',
+      goal: ''
+    }
+  )
+  setProfiles(res.data)
+}
 
-// //===DELETE===
+//===DELETE===
 
-// const deleteExercise = async () => {
-//   const res = await axios.delete("http://localhost:3001/api/exercise/:id",
-//     method: 'delete',
-//     data: currentExercises 
-//   })
-//   setExercises(res.data)
-// }
+const deleteExercise = async () => {
+  const res = await axios.delete('http://localhost:3001/api/exercise/:id')
+  setExercises(res.data)
+  }
 
-// const deleteProfile = async () => {
-//   const res = await axios.delete({
-//     url: "http://localhost:3001/api/profile/delete/:id",
-//     method: 'delete',
-//     data: currentProfiles
-//   })
-//   setProfiles(res.data)
-// }
+const deleteProfile = async () => {
+  const res = await axios.delete('http://localhost:3001/api/profile/:id')
+  setProfiles(res.data)
+  }
 
 
 

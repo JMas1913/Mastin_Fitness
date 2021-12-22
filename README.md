@@ -31,3 +31,5 @@ The user will input their information such as Gender, Age, and How much weight t
 -John
 
 -[Axios Documentation](https://www.atatus.com/blog/how-to-perform-http-requests-with-axios-a-complete-guide/#axios-request-methods)
+
+-[CRUD requests](https://dev.to/tienbku/axios-tutorial-get-post-put-delete-request-example-4ei9)
