@@ -3,12 +3,16 @@ import './styles/App.css'
 import { Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
 import Nav from './components/NavBar'
-import Listings from './components/Listings'
+import ListofExercises from './components/ListofExercises'
+import ListofProfiles from './components/ListofProfiles'
 import ExerciseDetails from './components/ExerciseDetails'
 import ExerciseForm from './components/ExerciseForm'
-import Workout from './components/Workout'
 import ProfileForm from './components/ProfileForm'
+import Workout from './components/Workout'
 import axios from 'axios'
+
+
+
 
 
 function App() {
@@ -30,20 +34,15 @@ function App() {
     goal: ''
   })
 
-  const getExercises = async () => {
-    const res = await axios.get("http://localhost:3001/api/exercises")
-    console.log(res.data)
-    setExercises(res.data)
-  }
+//=====CRUD=====
 
-  const getProfiles = async () => {
-    const res = await axios.get("http://localhost:3001/api/profiles")
-    setProfiles(res.data)
-  }
+//=======================================================
+
+//====CREATE====
 
   const postExercise = async () => {
     const res = await axios({
-      url: "http://localhost:3001/api/exercises",
+      url: "http://localhost:3001/api/exercise/create",
       method: 'post',
       data: newExercise 
     })
@@ -53,19 +52,12 @@ function App() {
 
   const postProfile = async () => {
     const res = await axios({
-      url: "http://localhost:3001/api/newprofile",
+      url: "http://localhost:3001/api/profile/create",
       method: 'post',
       data: newProfile
     })
     setProfiles(res.data)
   }
-
-
-
-  useEffect(() => {
-    getProfiles()
-    getExercises()
-  }, [])
 
   const addExercise = (e) => {
     e.preventDefault()
@@ -90,6 +82,67 @@ function App() {
     setNewProfile({ name: '', age: '', sex: '', goal: '' })
   }
 
+//===READ===
+
+  const getExercises = async () => {
+    const res = await axios.get("http://localhost:3001/api/exercises/read")
+    console.log(res.data)
+    setExercises(res.data)
+  }
+
+  const getProfiles = async () => {
+    const res = await axios.get("http://localhost:3001/api/profiles/read")
+    setProfiles(res.data)
+  }
+
+//===UPDATE===
+
+const putExercise = async () => {
+  const res = await axios({
+    url: "http://localhost:3001/api/exercise/update/:id",
+    method: 'update',
+    data: currentExercises 
+  })
+  setExercises(res.data)
+}
+
+const putProfile = async () => {
+  const res = await axios({
+    url: "http://localhost:3001/api/profile/update/:id",
+    method: 'put',
+    data: currentProfiles
+  })
+  setProfiles(res.data)
+}
+
+//===DELETE===
+
+const deleteExercise = async () => {
+  const res = await axios({
+    url: "http://localhost:3001/api/exercise/delete/:id",
+    method: 'delete',
+    data: currentExercises 
+  })
+  setExercises(res.data)
+}
+
+const deleteProfile = async () => {
+  const res = await axios({
+    url: "http://localhost:3001/api/profile/delete/:id",
+    method: 'delete',
+    data: currentProfiles
+  })
+  setProfiles(res.data)
+}
+
+
+
+
+  useEffect(() => {
+    getProfiles()
+    getExercises()
+  }, [])
+
   const handleChangeExercise = (e) => {
     setNewExercise({ ...newExercise, [e.target.name]: e.target.value })
   }
@@ -111,15 +164,15 @@ return (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route
-          exact path="/Listings"
-          component={(props) => <Listings {...props} exercises={exercises} />}
+          exact path="/ListofExercises"
+          component={(props) => <ListofExercises {...props} exercises={exercises} />}
         />
         <Route
-          path="/listings/:name"
+          path="/listofExercises/:name"
           component={(props) => <ExerciseDetails {...props} exercises={exercises} />}
         />
         <Route
-          path="/new"
+          path="/newexercise"
           render={(props) => (
             <ExerciseForm
               {...props}
@@ -131,7 +184,7 @@ return (
         />
         <Route
           exact path="/workout"
-          component={(props) => <Listings {...props} workout={Math.random.exercises} />}
+          component={(props) => <ListofExercises {...props} workout={Math.random.exercises} />}
         />
         <Route
           path="/newprofile"

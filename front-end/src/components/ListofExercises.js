@@ -2,10 +2,10 @@ import React from 'react'
 import { Route } from 'react-router-dom'
 import Home from './Home'
 
-function Listings(props) {
-  console.log("listings page")
+function ListofExercises(props) {
+  console.log("list of exercise page")
   const showExercise = (exercise) => {
-    props.history.push(`/listings/${exercise.id}`)
+    props.history.push(`/listingofexercises/${exercise.id}`)
   }
 
 
@@ -22,4 +22,4 @@ function Listings(props) {
   )
 }
 
-export default Listings
+export default ListofExercises

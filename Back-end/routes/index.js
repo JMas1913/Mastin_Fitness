@@ -4,33 +4,25 @@ const router = Router();
 
 router.get('/', (req, res) => res.send('This is root!'))
 
-router.post('/exercises', controllers.createExercise)
+router.post('/exercise/create', controllers.createExercise)
 
-router.get('/exercises', controllers.getAllExercises)
+router.get('/exercises/read', controllers.getAllExercises)
 
-router.get('/exercises/:id', controllers.getExerciseById)
+router.get('/exercises/read/:id', controllers.getExerciseById)
 
-router.put('/exercises/:id', controllers.updateExercise)
+router.put('/exercise/update/:id', controllers.updateExercise)
 
-router.delete('/exercises/:id', controllers.deleteExercise)
+router.delete('/exercise/delete/:id', controllers.deleteExercise)
 
-router.post('/newprofile', controllers.createProfile)
+router.post('/profile/create', controllers.createProfile)
 
-router.get('/profiles', controllers.getAllProfiles)
+router.get('/profiles/read', controllers.getAllProfiles)
 
-router.get('/profiles/:id', controllers.getProfileById)
+router.get('/profile/read/:id', controllers.getProfileById)
 
-router.put('/profiles/:id', controllers.updateProfile)
+router.put('/profile/update/:id', controllers.updateProfile)
 
-router.delete('/profiles/:id', controllers.deleteProfile)
-
-
-
-
-
-
-
-
+router.delete('/profiles/delete/:id', controllers.deleteProfile)
 
 
 module.exports = router;
