@@ -20,6 +20,8 @@ The user will input their information such as Gender, Age, and How much weight t
 
 -[Front-end Setup](https://github.com/SEI-R-11-8/u2_lesson_react_router)
 
+-[Stylizing](https://github.com/SEI-R-11-8/u1_lesson_flex_grid)
+
 -[Background Picture](https://unsplash.com/photos/w95BkIgqkqY)
 
 -[Gym Picture](https://unsplash.com/photos/20jX9b35r_M)

@@ -1,40 +1,52 @@
 import React from 'react'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { useHistory, useParams } from 'react-router-dom'
 
 function ExerciseDetails(props) {
-  
-  const  [selectExercise, setExercise] = useState('')
-  const getExerciseDetail = async (id) => {
+  let history = useHistory()
+  let {id} = useParams()
+  const [selectExercise, setExercise] = useState('')
+  const [name, setName] = useState('')
+  const [reps, setReps] = useState('')
+  const [weight, setWeight] = useState('')
+  const [sets, setSets] = useState('')
+  const [type, setType] = useState('')
+
+  const getExerciseDetail = async () => {
     const res = await axios.get(`http://localhost:3001/api/exercises/read/${id}`)
+    setExercise(res.data.exerciseId)
   }
 
-  getExerciseDetail(selectExercise._id)
+ 
 
   useEffect(() => {
-    let selectExercise = props.exercises.exercises.find(
-      (exercise) => exercise._id === props.match.params.id
-    )
+    getExerciseDetail()
     setExercise(selectExercise)
+    setName(selectExercise.name)
+    setReps(selectExercise.reps)
+    setWeight(selectExercise.weight)
+    setSets(selectExercise.sets)
+    setType(selectExercise.type)
   }, [])
-  
-  const putExercise = async (id) => {
+
+  const putExercise = async () => {
     const res = await axios.put(
       `http://localhost:3001/api/exercise/${id}`,
       {
-        name: props.exercises.exercises.name,
-        reps: props.exercises.exercises.reps,
-        weight: props.exercises.exercises.weight,
-        sets: props.exercises.exercises.sets,
-        type: props.exercises.exercises.type
+        name,
+        reps,
+        weight,
+        sets,
+        type
       }
     )
-    props.setExercise(res.data)
-    props.history.push(`/listofexercises`)
+    // props.setExercise(res.data)
+    history.push(`/listofexercises`)
   }
 
 
-  const deleteExercise = async (id) => {
+  const deleteExercise = async () => {
     const res = await axios.delete(`http://localhost:3001/api/exercise/${id}`)
     props.exercises.filter(props.exercises.exercises)
     // props.setExercises(res.data)
@@ -43,37 +55,42 @@ function ExerciseDetails(props) {
 
 
 
-  
-    return selectExercise ? (
-      <div className='details'>
-        <div className='detail-header'>
-          <div style={{minWidth: '30em', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <h2>{selectExercise.name}</h2>
-          </div>
-        </div>
-        <div className='info-wrapper'>
-          <div style={{display: 'flex', justifyContent: 'space-around'}}>
-            <h3>Reps: {selectExercise.reps}</h3>
-            <h3>Weight: {selectExercise.weight}</h3>
-            <h3>Sets: {selectExercise.sets}</h3>
-            <h3>Exercise Type: {selectExercise.type}</h3>
-          </div>
-        </div>
-        <div>
-          <button onClick={() => putExercise(selectExercise._id)}>
-            Update an Exercise
-          </button>
 
-          <button onClick={() => deleteExercise(selectExercise._id)}>
-            Delete an Exercise
-          </button>
+  return selectExercise ? (
+    <div className='details'>
+      <div className='detail-header'>
+        <div style={{ minWidth: '30em', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <h2>{selectExercise.name}</h2>
         </div>
       </div>
+      <div className='info-wrapper'>
+        <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <h3>Reps: {selectExercise.reps}</h3>
+          <h3>Weight: {selectExercise.weight}</h3>
+          <h3>Sets: {selectExercise.sets}</h3>
+          <h3>Exercise Type: {selectExercise.type}</h3>
+        </div>
+      </div>
+      <div>
+        <form onSubmit={() => putExercise()}>
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} name={'name'} placeholder={'name'} />
+          <input type="text" value={reps} onChange={(e) => setReps(e.target.value)} name={'reps'} placeholder={'reps'} />
+          <input type="text" value={weight} onChange={(e) => setWeight(e.target.value)} name={'weight'} placeholder={'weight'} />
+          <input type="text" value={sets} onChange={(e) => setSets(e.target.value)} name={'sets'} placeholder={'sets'} />
+          <input type="text" value={type} onChange={(e) => setType(e.target.value)} name={'type'} placeholder={'type'} />
+          <button type='submit'>Submit</button>
+        </form>
+
+        <button onClick={() => deleteExercise()}>
+          Delete an Exercise
+        </button>
+      </div>
+    </div>
   ) : null;
 
 
-  
-  
+
+
 
 
 

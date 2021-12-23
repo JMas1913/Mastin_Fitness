@@ -84,10 +84,7 @@ function App() {
 
 //===READ===
 
-  const getExercises = async () => {
-    const res = await axios.get("http://localhost:3001/api/exercises/read")
-    setExercises(res.data)
-  }
+ 
 
   const getProfiles = async () => {
     const res = await axios.get("http://localhost:3001/api/profiles/read")
@@ -122,7 +119,6 @@ const deleteProfile = async (id) => {
 
   useEffect(() => {
     getProfiles()
-    getExercises()
   }, [])
 
   const handleChangeExercise = (e) => {

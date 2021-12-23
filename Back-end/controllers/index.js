@@ -37,19 +37,17 @@ const getExerciseById = async (req, res) => {
 }
 
 const updateExercise = async (req, res) => {
+    console.log(req.params)
+    console.log(req.body)
     try {
         const { id } = req.params;
-        await Exercise.findByIdAndUpdate(id, req.body, { new: true }, (err, exercise) => {
-            if (err) {
-                res.status(500).send(err);
-            }
-            if (!exercise) {
-                res.status(500).send('Exercise not found!');
-            }
+        await Exercise.findOneAndUpdate({_id:id}, req.body, { new: true }, (err, exercise) => {
+            
             return res.status(200).json(exercise);
         })
     } catch (error) {
-        return res.status(500).send(error.message);
+        // return res.status(500).send(error.message);
+        console.log(error)
     }
 }
 
