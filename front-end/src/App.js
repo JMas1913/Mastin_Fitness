@@ -86,7 +86,6 @@ function App() {
 
   const getExercises = async () => {
     const res = await axios.get("http://localhost:3001/api/exercises/read")
-    console.log(res.data)
     setExercises(res.data)
   }
 
@@ -97,23 +96,10 @@ function App() {
 
 // ===UPDATE===
 
-const putExercise = async () => {
-  const res = await axios.put(
-    'http://localhost:3001/api/exercise/:id',
-    {
-      name: '',
-      reps: '',
-      weight: '',
-      sets: '',
-      type: ''
-    }
-  )
-  setExercises(res.data)
-}
 
-const putProfile = async () => {
+const putProfile = async (id) => {
   const res = await axios.put(
-    'http://localhost:3001/api/profile/update/:id',
+    `http://localhost:3001/api/profile/${id}`,
     {
       name: '',
       age: '',
@@ -126,13 +112,8 @@ const putProfile = async () => {
 
 //===DELETE===
 
-const deleteExercise = async () => {
-  const res = await axios.delete('http://localhost:3001/api/exercise/:id')
-  setExercises(res.data)
-  }
-
-const deleteProfile = async () => {
-  const res = await axios.delete('http://localhost:3001/api/profile/:id')
+const deleteProfile = async (id) => {
+  const res = await axios.delete(`http://localhost:3001/api/profile/${id}`)
   setProfiles(res.data)
   }
 
@@ -169,8 +150,8 @@ return (
           component={(props) => <ListofExercises {...props} exercises={exercises} />}
         />
         <Route
-          path="/listofexercises/:name"
-          component={(props) => <ExerciseDetails {...props} exercises={exercises} />}
+          path="/listofexercises/:id"
+          component={(props) => <ExerciseDetails {...props} exercises={exercises} setExercises={setExercises} />}
         />
         <Route
           path="/newexercise"

@@ -7,7 +7,7 @@ div {
     color: greenyellow;
 }
 
-.detail, .detail-header, .listings, .home, .home div, .exercise-card, .navbar, .workout, .newprofile {
+.exercisedetail, .detail-header, .listofexercises, .home, .home div, .exercise-card, .navbar, .workout, .newprofile {
     display: flex;
 }
 
