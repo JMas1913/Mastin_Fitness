@@ -34,9 +34,7 @@ function App() {
     goal: ''
   })
 
-//=======================================================
 
-//=====CRUD=====
 
 //====CREATE====
 
@@ -82,44 +80,6 @@ function App() {
     setNewProfile({ name: '', age: '', sex: '', goal: '' })
   }
 
-//===READ===
-
- 
-
-  const getProfiles = async () => {
-    const res = await axios.get("http://localhost:3001/api/profiles/read")
-    setProfiles(res.data)
-  }
-
-// ===UPDATE===
-
-
-const putProfile = async (id) => {
-  const res = await axios.put(
-    `http://localhost:3001/api/profile/${id}`,
-    {
-      name: '',
-      age: '',
-      sex: '',
-      goal: ''
-    }
-  )
-  setProfiles(res.data)
-}
-
-//===DELETE===
-
-const deleteProfile = async (id) => {
-  const res = await axios.delete(`http://localhost:3001/api/profile/${id}`)
-  setProfiles(res.data)
-  }
-
-
-
-
-  useEffect(() => {
-    getProfiles()
-  }, [])
 
   const handleChangeExercise = (e) => {
     setNewExercise({ ...newExercise, [e.target.name]: e.target.value })

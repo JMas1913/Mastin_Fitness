@@ -41,7 +41,6 @@ function ExerciseDetails(props) {
         type
       }
     )
-    // props.setExercise(res.data)
     history.push(`/listofexercises`)
   }
 
@@ -49,8 +48,6 @@ function ExerciseDetails(props) {
   const deleteExercise = async () => {
     const res = await axios.delete(`http://localhost:3001/api/exercise/${id}`)
     props.exercises.filter(props.exercises.exercises)
-    // props.setExercises(res.data)
-    // props.history.push(`/listofexercises`)
   }
 
 

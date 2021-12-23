@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Route } from 'react-router-dom'
 import Home from './Home'
+import axios from 'axios'
 
 function ListofProfiles(props) {
-  console.log("list of profile page")
+  const [profiles, setProfiles] = useState([])
   const showProfiles = (profile) => {
     props.history.push(`/listofprofiles/${profile.id}`)
   }
+
+  const getProfiles = async () => {
+    const res = await axios.get("http://localhost:3001/api/profiles/read")
+    setProfiles(res.data)
+  }
+
+
+  useEffect(() => {
+    getProfiles()
+  }, [])
 
 
   return (
@@ -17,14 +28,6 @@ function ListofProfiles(props) {
           <h3>{profile.name}</h3>
         </div>
       ))}
-
-      <div>
-        <button>
-          Delete a profile
-        </button>
-      </div>
-
-
 
     </div>
     

@@ -22,7 +22,7 @@ router.get('/profile/read/:id', controllers.getProfileById)
 
 router.put('/profile/:id', controllers.updateProfile)
 
-router.delete('/profiles/:id', controllers.deleteProfile)
+router.delete('/profile/:id', controllers.deleteProfile)
 
 
 module.exports = router;
